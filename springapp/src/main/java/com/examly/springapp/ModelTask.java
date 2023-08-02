@@ -39,5 +39,5 @@ public class ModelTask {
     public void setTaskStatus(String taskStatus) {
         this.taskStatus = taskStatus;
     }
-    String taskStatus;   
+    String taskStatus ;  
 }
