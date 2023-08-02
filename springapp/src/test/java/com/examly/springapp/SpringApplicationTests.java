@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-@SpringBootTest
+@SpringBootTest(classes = SpringappApplication.class)
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 public class SpringApplicationTests {
@@ -25,7 +25,8 @@ public class SpringApplicationTests {
 	//Add A New Task
 	@Test
     public void test_case1() throws Exception {
-        String dataOne = "{\"taskId\":\"12211\",\"taskHolderName\":\"Gowthaman M\",\"taskDate\":\"4/15/2021\",\"taskName\":\"Spring Projects\",\"taskStatus\":\"In Progress\"}";
+		
+		String dataOne = "{\"taskId\":\"12211\",\"taskHolderName\":\"Gowthaman M\",\"taskDate\":\"4/15/2021\",\"taskName\":\"Spring Projects\",\"taskStatus\":\"In Progress\"}";
 	 	mockMvc.perform(MockMvcRequestBuilders.post("/saveTask")
 	 			.contentType(MediaType.APPLICATION_JSON)
 	 			.content(dataOne)
@@ -49,7 +50,8 @@ public class SpringApplicationTests {
 	        	.andReturn();
 	 	
     }
-    //Get A Task By ID
+	
+	//Get A Task By ID
 	@Test
 	public void test_case3() throws Exception {
 		
@@ -65,9 +67,10 @@ public class SpringApplicationTests {
 		        .andReturn();
 			
 	}
-	/Delete A Task
+	
+	//Delete A Task
 	@Test
-	public void test_case5() throws Exception {
+	public void test_case4() throws Exception {
 		
 		mockMvc.perform(MockMvcRequestBuilders.get("/deleteTask")
 				.param("taskId","12211")
